@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/bootstrap.php';
+
+$command = $argv[1] ?? null;
+
+if ($command === 'test') {
+    require __DIR__.'/tests/TestSuite.php';
+    exit(Tests\TestSuite::run());
+}
+
+if ($command === 'db:seed') {
+    (new Database\Seeders\DatabaseSeeder())->run();
+    echo "Database seeded.\n";
+    exit(0);
+}
+
+fwrite(STDERR, "Unsupported command: {$command}\n");
+exit(1);

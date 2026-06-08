@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "echo 'Vite assets already compiled for lightweight admin controls.'"
+  },
+  "devDependencies": {}
+}
